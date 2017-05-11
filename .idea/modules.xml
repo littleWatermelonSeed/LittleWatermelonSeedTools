@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LittleWatermelonSeedTools.iml" filepath="$PROJECT_DIR$/LittleWatermelonSeedTools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LittleWatermelonSeedTools.iml" filepath="$PROJECT_DIR$/LittleWatermelonSeedTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watermelonseedtools/watermelonseedtools.iml" filepath="$PROJECT_DIR$/watermelonseedtools/watermelonseedtools.iml" />
       <module fileurl="file://$PROJECT_DIR$/watermelonseedtools/watermelonseedtools.iml" filepath="$PROJECT_DIR$/watermelonseedtools/watermelonseedtools.iml" />
     </modules>
   </component>
