@@ -374,4 +374,32 @@ public class LiTopBar extends RelativeLayout {
         this.rightContainerBackground = rightContainerBackground;
         linearLayout_rightContainer.setBackground(rightContainerBackground);
     }
+
+    public LinearLayout getLinearLayout_middleDevelopment() {
+        return linearLayout_middleDevelopment;
+    }
+
+    public LinearLayout getLinearLayout_rightDevelopment() {
+        return linearLayout_rightDevelopment;
+    }
+
+    public ImageView getImageView_left() {
+        return imageView_left;
+    }
+
+    public ImageView getImageView_right() {
+        return imageView_right;
+    }
+
+    public TextView getTextView_left() {
+        return textView_left;
+    }
+
+    public TextView getTextView_right() {
+        return textView_right;
+    }
+
+    public TextView getTextView_middle() {
+        return textView_middle;
+    }
 }
