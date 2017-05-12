@@ -52,8 +52,8 @@ public class LiTopBar extends RelativeLayout {
     private Drawable rightImageViewBackground;
     private Drawable rightContainerBackground;
 
-    private static int middleDevelopmentChildNum = 0;
-    private static int rightDevelopmentChildNum = 0;
+    private int middleDevelopmentChildNum = 0;
+    private int rightDevelopmentChildNum = 0;
     private boolean isRightText = false;
     private boolean isMiddleText = false;
 
