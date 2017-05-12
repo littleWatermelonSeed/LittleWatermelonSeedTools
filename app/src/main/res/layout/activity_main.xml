@@ -19,16 +19,16 @@
         app:right_loading_speed="8"
         app:status_text_color="#cccccc"
         app:stop_back_icon="@mipmap/stop"
+        android:visibility="gone"
         />
 
     <cn.customwidget.www.LiTopBar
+        android:id="@+id/activity_liTopBar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:bodyBackground="@color/blue"
-        app:rightImage="@drawable/more"
-        app:leftText="返回"
-        app:middleText="主题"
-        app:leftImage="@drawable/back">
+        app:leftImageSrc="@drawable/addressbook_fill"
+        app:rightImageSrc="@drawable/more"
+        app:middleText="主题">
 
     </cn.customwidget.www.LiTopBar>
 
