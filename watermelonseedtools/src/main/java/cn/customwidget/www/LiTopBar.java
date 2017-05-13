@@ -6,12 +6,15 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sayhellototheworld.littlewatermelon.watermelonseedtools.R;
+
+import util.DensityUtil;
 
 /**
  * Created by 123 on 2017/5/11.
@@ -35,22 +38,30 @@ public class LiTopBar extends RelativeLayout {
     private TextView textView_middle;
 
     private Drawable bodyBackground;
+    private int contentHeight;
 
     private Drawable leftImageViewSrc;
     private Drawable leftImageViewBackground;
     private Drawable leftContainerBackground;
+    private float leftImageViewWidth;
+    private float leftImageViewHeight;
     private String leftText;
     private int leftTextColor;
+    private float leftTextSize;
 
     private String middleText;
     private Drawable middleContainerBackground;
     private int middleTextColor;
+    private float middleTextSize;
 
     private String rightText;
     private int rightTextColor;
     private Drawable rightImageViewSrc;
     private Drawable rightImageViewBackground;
     private Drawable rightContainerBackground;
+    private float rightImageViewWidth;
+    private float rightImageViewHeight;
+    private float rightTextSize;
 
     private int middleDevelopmentChildNum = 0;
     private int rightDevelopmentChildNum = 0;
@@ -58,12 +69,21 @@ public class LiTopBar extends RelativeLayout {
     private boolean isMiddleText = false;
 
     private TypedArray typedArray;
+    private Context context;
 
     public LiTopBar(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         LayoutInflater.from(context).inflate(R.layout.li_top_bar, this);
         typedArray = context.obtainStyledAttributes(attrs, R.styleable.LiTopBar);
         init();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        contentHeight = DensityUtil.px2dip(context,getMeasuredWidth());
+        setContentHeight();
     }
 
     private void init() {
@@ -98,16 +118,23 @@ public class LiTopBar extends RelativeLayout {
         leftContainerBackground = typedArray.getDrawable(R.styleable.LiTopBar_leftContainerBackground);
         leftText = typedArray.getString(R.styleable.LiTopBar_leftText);
         leftTextColor = typedArray.getColor(R.styleable.LiTopBar_leftTextColor, getResources().getColor(R.color.black));
+        leftImageViewWidth = typedArray.getDimension(R.styleable.LiTopBar_leftImageViewWidth,DensityUtil.dip2px(context,25));
+        leftImageViewHeight = typedArray.getDimension(R.styleable.LiTopBar_leftImageViewHeight, DensityUtil.dip2px(context,49));
+        leftTextSize = typedArray.getDimension(R.styleable.LiTopBar_lefttextSize,DensityUtil.sp2px(context,4));
 
+        middleTextSize = typedArray.getDimension(R.styleable.LiTopBar_middleTextSize,DensityUtil.sp2px(context,5));
         middleText = typedArray.getString(R.styleable.LiTopBar_middleText);
         middleContainerBackground = typedArray.getDrawable(R.styleable.LiTopBar_middleContainerBackground);
         middleTextColor = typedArray.getColor(R.styleable.LiTopBar_middleTextColor, getResources().getColor(R.color.black));
 
+        rightTextSize = typedArray.getDimension(R.styleable.LiTopBar_rightTextSize,DensityUtil.sp2px(context,4));
         rightText = typedArray.getString(R.styleable.LiTopBar_rightText);
         rightImageViewSrc = typedArray.getDrawable(R.styleable.LiTopBar_rightImageSrc);
         rightImageViewBackground = typedArray.getDrawable(R.styleable.LiTopBar_rightImageViewBackground);
         rightContainerBackground = typedArray.getDrawable(R.styleable.LiTopBar_rightContainerBackgroun);
         rightTextColor = typedArray.getColor(R.styleable.LiTopBar_rightTextColor, getResources().getColor(R.color.black));
+        rightImageViewWidth = typedArray.getDimension(R.styleable.LiTopBar_rightImageViewWidth,DensityUtil.dip2px(context,25));
+        rightImageViewHeight = typedArray.getDimension(R.styleable.LiTopBar_rightImageViewHeight,DensityUtil.dip2px(context,49));
 
         typedArray.recycle();
     }
@@ -120,16 +147,19 @@ public class LiTopBar extends RelativeLayout {
         relativeLayout_leftContainer.setBackground(leftContainerBackground);
         textView_left.setText(leftText);
         textView_left.setTextColor(leftTextColor);
+        textView_left.setTextSize(leftTextSize);
 
         textView_middle.setText(middleText);
         relativeLayout_middleContainer.setBackground(middleContainerBackground);
         textView_middle.setTextColor(middleTextColor);
+        textView_middle.setTextSize(middleTextSize);
 
         textView_right.setText(rightText);
         textView_right.setTextColor(rightTextColor);
         imageView_right.setImageDrawable(rightImageViewSrc);
         imageView_right.setBackground(rightImageViewBackground);
         linearLayout_rightContainer.setBackground(rightContainerBackground);
+        textView_right.setTextSize(rightTextSize);
 
         if (leftImageViewBackground == null && leftImageViewSrc == null) {
             imageView_left.setVisibility(GONE);
@@ -147,6 +177,28 @@ public class LiTopBar extends RelativeLayout {
             isMiddleText = true;
         }
 
+        setLeftImageViewSize();
+        setRightImageViewSize();
+    }
+
+    private void setContentHeight(){
+        LayoutParams params = (LayoutParams) relativeLayout_content.getLayoutParams();
+        params.height = DensityUtil.dip2px(context,contentHeight);
+        relativeLayout_content.setLayoutParams(params);
+    }
+
+    private void setLeftImageViewSize(){
+        RelativeLayout.LayoutParams params = (LayoutParams) imageView_left.getLayoutParams();
+        params.width = (int) leftImageViewWidth;
+        params.height = (int) leftImageViewHeight;
+        imageView_left.setLayoutParams(params);
+    }
+
+    private void setRightImageViewSize(){
+        ViewGroup.LayoutParams params = imageView_right.getLayoutParams();
+        params.width = (int) rightImageViewWidth;
+        params.height = (int) rightImageViewHeight;
+        imageView_right.setLayoutParams(params);
     }
 
     public void setLeftContainerListener(OnClickListener l) {
