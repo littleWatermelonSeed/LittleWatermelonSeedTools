@@ -25,7 +25,7 @@
     <cn.customwidget.www.LiTopBar
         android:id="@+id/activity_liTopBar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         app:bodyBackground="@color/red"
         app:leftImageSrc="@drawable/addressbook_fill"
         app:leftImageViewWidth="35dp"

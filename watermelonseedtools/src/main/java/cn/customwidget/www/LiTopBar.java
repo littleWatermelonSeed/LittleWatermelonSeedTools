@@ -38,7 +38,6 @@ public class LiTopBar extends RelativeLayout {
     private TextView textView_middle;
 
     private Drawable bodyBackground;
-    private int contentHeight;
 
     private Drawable leftImageViewSrc;
     private Drawable leftImageViewBackground;
@@ -82,8 +81,6 @@ public class LiTopBar extends RelativeLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        contentHeight = DensityUtil.px2dip(context,getMeasuredWidth());
-        setContentHeight();
     }
 
     private void init() {
@@ -179,12 +176,6 @@ public class LiTopBar extends RelativeLayout {
 
         setLeftImageViewSize();
         setRightImageViewSize();
-    }
-
-    private void setContentHeight(){
-        LayoutParams params = (LayoutParams) relativeLayout_content.getLayoutParams();
-        params.height = DensityUtil.dip2px(context,contentHeight);
-        relativeLayout_content.setLayoutParams(params);
     }
 
     private void setLeftImageViewSize(){
