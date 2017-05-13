@@ -25,7 +25,7 @@
     <cn.customwidget.www.LiTopBar
         android:id="@+id/activity_liTopBar"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="120dp"
         app:bodyBackground="@color/red"
         app:leftImageSrc="@drawable/addressbook_fill"
         app:leftImageViewWidth="35dp"
@@ -35,9 +35,8 @@
         app:rightImageSrc="@drawable/clock"
         app:middleText="主题"/>
 
-    <ProgressBar
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:indeterminateDrawable="@drawable/zz_running_progressbar"/>
+    <cn.customwidget.www.LiRunningProgress
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
 
 </LinearLayout>

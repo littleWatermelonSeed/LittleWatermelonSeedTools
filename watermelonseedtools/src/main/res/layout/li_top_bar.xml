@@ -6,7 +6,7 @@
     <RelativeLayout
         android:id="@+id/li_top_bar_content"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="match_parent"
         android:paddingBottom="3dp"
         android:paddingLeft="6dp"
         android:paddingRight="6dp"

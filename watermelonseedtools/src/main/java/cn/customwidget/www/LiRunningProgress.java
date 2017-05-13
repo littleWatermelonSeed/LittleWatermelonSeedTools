@@ -1,6 +1,7 @@
 package cn.customwidget.www;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
@@ -14,7 +15,12 @@ public class LiRunningProgress extends ProgressBar{
 
     public LiRunningProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
         init();
+        super.onDraw(canvas);
     }
 
     private void init(){
