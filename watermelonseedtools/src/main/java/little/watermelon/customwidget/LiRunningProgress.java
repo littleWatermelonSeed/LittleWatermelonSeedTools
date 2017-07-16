@@ -1,4 +1,4 @@
-package cn.customwidget.www;
+package little.watermelon.customwidget;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -20,7 +20,6 @@ public class LiRunningProgress extends ProgressBar{
     @Override
     protected void onDraw(Canvas canvas) {
         init();
-        super.onDraw(canvas);
     }
 
     private void init(){

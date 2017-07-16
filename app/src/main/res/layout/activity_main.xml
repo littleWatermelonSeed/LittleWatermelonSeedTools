@@ -22,10 +22,10 @@
         android:visibility="gone"
         />
 
-    <cn.customwidget.www.LiTopBar
+    <little.watermelon.customwidget.LiTopBar
         android:id="@+id/activity_liTopBar"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="60dp"
         app:bodyBackground="@color/red"
         app:leftImageSrc="@drawable/addressbook_fill"
         app:leftImageViewWidth="35dp"
@@ -35,8 +35,19 @@
         app:rightImageSrc="@drawable/clock"
         app:middleText="主题"/>
 
-    <cn.customwidget.www.LiRunningProgress
+    <little.watermelon.customwidget.LiRunningProgress
         android:layout_width="40dp"
         android:layout_height="40dp" />
+
+    <little.watermelon.customwidget.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@color/gray"/>
+
+    <Button
+        android:id="@+id/activity_main_pictureSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片选择器"/>
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package cn.customwidget.www;
+package little.watermelon.customwidget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.sayhellototheworld.littlewatermelon.watermelonseedtools.R;
 
-import util.DensityUtil;
+import little.watermelon.util.DensityUtil;
 
 /**
  * Created by 123 on 2017/5/11.
